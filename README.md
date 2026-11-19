@@ -1,68 +1,81 @@
 # JavaScript 92485 - Trabajo Práctico 6
 
-Este proyecto continúa con la lógica desarrollada en las entregas anteriores del curso de JavaScript.
+Este proyecto continúa con la lógica desarrollada en las entregas anteriores del curso de JavaScript de Coderhouse.
 
-En esta nueva entrega se incorporan conceptos de **funciones de orden superior** aplicados al simulador de entrenamiento que ya se venía desarrollando.
+En esta entrega se incorporan **funciones de orden superior** aplicadas al simulador de entrenamiento, con el objetivo de mejorar la búsqueda, el filtrado y el procesamiento de la información.
 
 ## Objetivo del TP6
 
-El objetivo de esta entrega es trabajar con un **array de objetos** y aplicar distintos métodos de orden superior para buscar, filtrar, transformar y acumular información.
+El objetivo de esta entrega es trabajar con un **array de objetos** y aplicar distintos métodos de orden superior para interactuar con los datos de las rutinas de entrenamiento.
 
+Se busca integrar estos métodos al funcionamiento del simulador, permitiendo que el usuario elija qué operación desea realizar.
 
 ## Simulador de entrenamiento
 
 El simulador permite:
 
+- Consultar el catálogo de rutinas disponibles.
 - Ingresar la cantidad de días de entrenamiento semanal.
-- Evaluar si la cantidad de días ingresada es adecuada.
-- Elegir una rutina de entrenamiento.
-- Consultar información de las rutinas disponibles.
-- Buscar y filtrar rutinas.
-- Calcular valores relacionados con las rutinas.
+- Evaluar la cantidad de días ingresados.
+- Buscar una rutina por nombre.
+- Filtrar rutinas según su nivel de dificultad.
+- Calcular el total de calorías estimadas del catálogo.
+- Modificar la duración de una rutina.
+
+La interacción se realiza mediante `prompt()`, `alert()` y `console.log()`.
+
+El usuario puede seleccionar las distintas opciones desde un menú y repetir las operaciones hasta que decida salir.
 
 ## Clase Rutina
 
 Se utiliza una clase llamada `Rutina` para representar cada actividad del simulador.
 
-Cada rutina posee las siguientes propiedades:
+Cada rutina posee cuatro propiedades:
 
-- Nombre.
-- Duración en minutos.
-- Calorías estimadas por minuto.
-- Nivel de dificultad.
+- `nombre`: nombre de la rutina.
+- `duracionMinutos`: duración de la actividad.
+- `caloriasPorMinuto`: calorías estimadas por minuto.
+- `nivelDificultad`: nivel de dificultad de la rutina.
 
-También contiene métodos de instancia:
+También contiene dos métodos:
 
-- `calcularCalorias()`: calcula las calorías estimadas de una sesión.
-- `ajustarDuracion()`: modifica la duración de una rutina.
+- `calcularCalorias()`: calcula las calorías estimadas de una sesión según su duración.
+- `ajustarDuracion()`: permite agregar minutos a la duración de una rutina.
 
-Se crean diferentes objetos utilizando el operador `new`, entre ellos:
+Se crean tres objetos:
 
 - Fuerza y Pesas.
 - Cardio HIIT.
 - Yoga y Movilidad.
 
+Estos objetos se almacenan en el array `catalogoRutinas`.
+
 ## Funciones de orden superior
 
-En esta entrega se incorporaron los siguientes métodos:
-
-### `filter()`
-
-Se utiliza para filtrar las rutinas según el nivel de dificultad elegido por el usuario.
-
+### `forEach()`
 ### `find()`
-
-Se utiliza para buscar una rutina específica dentro del catálogo.
-
-### `map()`
-
-Se utiliza para transformar el array de rutinas y generar una versión resumida con el nombre y la duración de cada actividad.
-
+### `filter()`
 ### `reduce()`
 
-Se utiliza para recorrer todas las rutinas y calcular el total de calorías estimadas del catálogo.
+## Menú de opciones
 
-## Conceptos aplicados
+Se implementa un menú con `switch-case` para organizar las acciones disponibles.
 
-Durante el desarrollo se utilizan contenidos trabajados en las entregas anteriores y nuevos conceptos vistos en esta etapa.
+Las opciones son:
 
+1. Ver catálogo de rutinas.
+2. Planificar días de entrenamiento.
+3. Buscar una rutina por nombre.
+4. Filtrar rutinas por nivel.
+5. Calcular calorías del catálogo.
+6. Ajustar duración de una rutina.
+0. Salir del simulador.
+
+
+## Ejecución del proyecto
+
+Para ejecutar el simulador:
+
+1. Seleccionar una opción en el menú que aparece al iniciar.
+2. Consultar los resultados en la consola.
+3. Ingresar `0` para finalizar.
